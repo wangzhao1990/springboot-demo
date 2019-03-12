@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/demo-api/user")
+@RequestMapping("/user")
 @Api("UserController相关的api")
 public class UserController {
 
