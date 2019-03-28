@@ -1,10 +1,19 @@
 package com.zhao.demo.dal.po;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.NotNull;
+
 public class User {
+
     private Integer id;
 
+    @JsonProperty("user_age")
+    @NotNull
     private Integer age;
 
+    @NotBlank
     private String name;
 
     public Integer getId() {

@@ -25,7 +25,7 @@
     values (#{id,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zhao.demo.dal.po.User">
+  <insert id="insertSelective" parameterType="com.zhao.demo.dal.po.User" keyProperty="id" useGeneratedKeys="true">
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

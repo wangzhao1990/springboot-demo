@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/user")
-@Api("UserController相关的api")
+@Api(tags = "UserController相关的api")
 public class UserController {
 
     @Resource
@@ -23,4 +23,13 @@ public class UserController {
     public User getUserById(@PathVariable("id") Integer id){
         return userService.getUserById(id);
     }
+
+    @RequestMapping(value = "/add",method = RequestMethod.POST,consumes="application/json",produces="application/json")
+    @ApiOperation(value = "添加用户",notes = "添加用户信息")
+    public User getUserById(@RequestBody User user){
+        userService.addUser(user);
+        return user;
+    }
+
+
 }

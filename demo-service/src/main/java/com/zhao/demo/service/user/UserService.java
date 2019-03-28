@@ -5,4 +5,6 @@ import com.zhao.demo.dal.po.User;
 public interface UserService {
 
     User getUserById(Integer userId);
+
+    int addUser(User user);
 }
