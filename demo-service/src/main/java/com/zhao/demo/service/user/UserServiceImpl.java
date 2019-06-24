@@ -1,5 +1,6 @@
 package com.zhao.demo.service.user;
 
+import com.zhao.demo.common.exceptions.ApiException;
 import com.zhao.demo.dal.mapper.UserMapper;
 import com.zhao.demo.dal.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
