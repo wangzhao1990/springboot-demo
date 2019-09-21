@@ -22,6 +22,10 @@ public class SortArithmetic {
         }
     }
 
+    /**
+     * 冒泡排序
+     * @param array
+     */
     public static void bubbleSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - 1 - i; j++) {
@@ -34,6 +38,10 @@ public class SortArithmetic {
         }
     }
 
+    /**
+     * 插入排序
+     * @param array
+     */
     public static void insertSort(int[] array) {
         int j;
         for (int i = 1; i < array.length; i++) {
@@ -45,6 +53,10 @@ public class SortArithmetic {
         }
     }
 
+    /**
+     * 快速排序
+     * @param array
+     */
     public static void quickSort(int[] array){
         quickSort(array,0,array.length-1);
     }
