@@ -1,27 +1,27 @@
 #!/bin/bash
 set -o pipefail
 set -u
-EXTERNAL_LOADER_PATH="../conf"
+#EXTERNAL_LOADER_PATH="../conf"
 SERVER_PORT=8080
 SHUTDOWN_HOST=127.0.0.1
 EXEC_STD_OUT=/dev/null
 LOG_ROOT_PATH="./logs"
-LOG_FILE_NAME="fin-platform-api.log"
+LOG_FILE_NAME="demo-api.log"
 #source env.bash
 
 #evironment set
 WEB_BIN=`pwd`
-CONF_DIR="${WEB_BIN}/../conf"
+#CONF_DIR="${WEB_BIN}/../conf"
 
 CONFIG_LOCATION=/data1/www/hf_entrance/config/java_config/fin-platform-api/application.properties
 
-JAVA_OPTS=" -server -Xmx2g -Xms2g  -Xmn256m -XX:MetaspaceSize=128m -Xss256k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70"
+JAVA_OPTS=" -server -Xmx1g -Xms1g  -Xmn256m -XX:MetaspaceSize=128m -Xss256k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70"
 JAVA_OPTS="${JAVA_OPTS} -Dserver.port=${SERVER_PORT}"
-JAVA_OPTS="${JAVA_OPTS} -javaagent:/data1/env/apm-agent/apm-agent.jar -Dskywalking_ext.agent.port=${SERVER_PORT} -Dskywalking.agent.application_code=fin-platform-api -Djava.net.preferIPv4Stack=true"
+#JAVA_OPTS="${JAVA_OPTS} -javaagent:/data1/env/apm-agent/apm-agent.jar -Dskywalking_ext.agent.port=${SERVER_PORT} -Dskywalking.agent.application_code=fin-platform-api -Djava.net.preferIPv4Stack=true"
 #JAVA_OPTS="${JAVA_OPTS} -Dloader.path=${WEB_BIN}/../conf,${EXTERNAL_LOADER_PATH}"
 #JAVA_OPTS="${JAVA_OPTS} -Dlogging.path=${LOG_ROOT_PATH} -Dendpoints.logfile.external-file=${LOG_ROOT_PATH}/${LOG_FILE_NAME}"
-START_UP_EXEC="java -Dfile.encoding=utf-8 -Dspring.config.location=${CONFIG_LOCATION} ${JAVA_OPTS} -jar $WEB_BIN/../lib/fin-platform-api.jar"
-
+#START_UP_EXEC="java -Dfile.encoding=utf-8 -Dspring.config.location=${CONFIG_LOCATION} ${JAVA_OPTS} -jar $WEB_BIN/../lib/fin-platform-api.jar"
+START_UP_EXEC="java -Dfile.encoding=utf-8 ${JAVA_OPTS} -jar $WEB_BIN/../lib/demo-api.jar"
 
 #Time Config
 START_WAIT=5
@@ -35,7 +35,7 @@ RET_ERROR_SHUT=2
 RET_ERROR_START=3
 RET_STATUS_ALIVE=0
 RET_STATUS_NOT_ALIVE=1
-INSTANCE_PID=fin-platform-api.pid
+INSTANCE_PID=demo-api.pid
 function get_Pid(){
     if [ ! -z ${INSTANCE_PID} ];then
         if [ -f ${INSTANCE_PID} ];then

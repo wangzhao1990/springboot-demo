@@ -26,6 +26,12 @@
             <directoryMode>0755</directoryMode>
             <fileMode>0755</fileMode>
         </fileSet>
+        <fileSet>
+            <directory>src/main/resources/docker</directory>
+            <outputDirectory>docker</outputDirectory>
+            <directoryMode>0755</directoryMode>
+            <fileMode>0755</fileMode>
+        </fileSet>
     </fileSets>
     
 <!--     <dependencySets>
