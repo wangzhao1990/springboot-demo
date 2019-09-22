@@ -15,7 +15,7 @@ WEB_BIN=`pwd`
 
 CONFIG_LOCATION=/data1/www/hf_entrance/config/java_config/fin-platform-api/application.properties
 
-JAVA_OPTS=" -server -Xmx1g -Xms1g  -Xmn256m -XX:MetaspaceSize=128m -Xss256k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70"
+JAVA_OPTS=" -server -Xmx512m -Xms512m  -Xmn256m -XX:MetaspaceSize=128m -Xss256k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70"
 JAVA_OPTS="${JAVA_OPTS} -Dserver.port=${SERVER_PORT}"
 #JAVA_OPTS="${JAVA_OPTS} -javaagent:/data1/env/apm-agent/apm-agent.jar -Dskywalking_ext.agent.port=${SERVER_PORT} -Dskywalking.agent.application_code=fin-platform-api -Djava.net.preferIPv4Stack=true"
 #JAVA_OPTS="${JAVA_OPTS} -Dloader.path=${WEB_BIN}/../conf,${EXTERNAL_LOADER_PATH}"
