@@ -1,7 +1,9 @@
 package com.zhao.demo.common.utils.date;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -27,6 +29,33 @@ public class LocalDateTimeUtil {
      */
     public static LocalDateTime parse(String dateTime) {
         return LocalDateTime.parse(dateTime,FORMATTER);
+    }
+
+    /**
+     * 获取当月月初时间
+     * @return 时间对象 LocalDate
+     */
+    public static LocalDate firstDayOfMonth() {
+        LocalDate now = LocalDate.now();
+        return now.with(TemporalAdjusters.firstDayOfMonth());
+    }
+
+    /**
+     * 获取当月月初时间
+     * @return 时间对象 LocalDateTime
+     */
+    public static LocalDateTime firstDayTimeOfMonth() {
+        LocalDate localDate = firstDayOfMonth();
+        return localDate.atStartOfDay();
+    }
+
+    /**
+     * 获取当月月末时间
+     * @return 时间对象 LocalDate
+     */
+    public static LocalDate lastDayOfMonth() {
+        LocalDate now = LocalDate.now();
+        return now.with(TemporalAdjusters.lastDayOfMonth());
     }
 
 
