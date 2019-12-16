@@ -20,6 +20,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -276,10 +278,11 @@ public class EasyExcelUtil {
     }
 
 
-//    public static void main(String[] args) throws FileNotFoundException {
-//        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\DELL\\Desktop\\去海外\\userInfos.xlsx");
-//        List<Object> objects = EasyExcelUtil.readExcelGreaterThen1000(fileInputStream);
-//        List<Object> read = EasyExcelFactory.read(fileInputStream, new Sheet(1, 0, UserInfoModel.class));
-//        System.out.println(objects);
-//    }
+    public static void main(String[] args) throws FileNotFoundException, MalformedURLException {
+        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\DELL\\Desktop\\去海外\\userInfos.xlsx");
+        URL url = new URL("");
+        List<Object> objects = EasyExcelUtil.readExcelGreaterThen1000(fileInputStream);
+        List<Object> read = EasyExcelFactory.read(fileInputStream, new Sheet(1, 0, UserInfoModel.class));
+        System.out.println(objects);
+    }
 }
